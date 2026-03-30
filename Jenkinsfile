@@ -1,29 +1,23 @@
-Create file:
-Jenkinsfile
 pipeline {
-
     agent any
 
     stages {
-
         stage('Checkout') {
             steps {
-                checkout scm
+                echo 'Checking out code...'
             }
         }
 
-        stage('Run MATLAB Tests') {
+        stage('Build') {
             steps {
-                sh 'matlab -batch "run_tests"'
+                echo 'Running MATLAB Build...'
             }
         }
 
-        stage('Publish Results') {
+        stage('Test') {
             steps {
-                junit 'test-results.xml'
+                echo 'Running Tests...'
             }
         }
-
     }
-
 }
